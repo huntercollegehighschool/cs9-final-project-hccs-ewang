@@ -49,7 +49,11 @@ def hangman():
     while wrong != 7:
         if guess not in letters:
             os.system('clear')
-            wrong += 1
+            if guess in wrongs:
+              wrong += 0
+            elif guess not in wrongs:
+              wrong +=1
+              wrongs.append(str(guess))
             if wrong == 1:
                 print("You now have", wrong, "wrong guess.")
             elif wrong == 6:
@@ -68,7 +72,6 @@ def hangman():
                     hangman()
             elif wrong > 1:
                 print("You now have", wrong, "wrong guesses.")
-            wrongs.append(str(guess))
             print("You have already guessed:", ", ".join(wrongs))
             print("".join(state))
             guess = input("Please guess a letter: ").lower()
@@ -105,8 +108,14 @@ def hangman():
                 guess = input("Please guess a letter: ").lower()
             elif guess in state:
                 os.system('clear')
+                if guess in wrongs:
+                 wrong += 0
+                elif guess not in wrongs:
+                 wrong +=1
+                 wrongs.append(str(guess))
                 print("You have already guessed this letter!")
-                wrong += 1
+                if wrong == 0:
+                  print("You have", wrong, "wrong guesses.")
                 if wrong == 1:
                     print("you now have", wrong, "wrong guess.")
                 elif wrong == 6:
@@ -115,18 +124,17 @@ def hangman():
                     games = str(
                         input("Would you like to play again? Yes or No? ")
                     ).lower()
-                if games != "yes" and games != "no":
-                    print("Goodbye.")
-                    exit()
-                elif games == "no":
-                    print("Goodbye.")
-                    exit()
-                elif games == "yes":
-                    os.system('clear')
-                    hangman()
+                    if games != "yes" and games != "no":
+                        print("Goodbye.")
+                        exit()
+                    elif games == "no":
+                        print("Goodbye.")
+                        exit()
+                    elif games == "yes":
+                        os.system('clear')
+                        hangman()
                 if wrong > 1:
                     print("You now have", wrong, "wrong guesses.")
-                wrongs.append(str(guess))
                 print("You have already guessed", ", ".join(list(wrongs)))
                 print("".join(state))
                 guess = input("Please guess a letter: ").lower()
