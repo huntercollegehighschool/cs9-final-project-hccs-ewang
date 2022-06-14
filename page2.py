@@ -14,9 +14,11 @@ def pick(list):
 def hangman():
 
     print("Welcome to Electrical Hangman!")
-    diff = input("Please choose EASY, MEDIUM, or HARD difficulty: ").lower()
+    diff = input(
+        "Please choose EASY, MEDIUM, or HARD difficulty, or QUIT to exit: "
+    ).lower()
 
-    while diff not in ['easy', 'medium', 'hard']:
+    while diff not in ['easy', 'medium', 'hard', 'quit']:
         diff = (input(
             "That's not a difficulty! Please choose EASY, MEDIUM, or HARD difficulty: "
         )).lower()
@@ -27,6 +29,9 @@ def hangman():
         word = pick(MEDIUMWORDS)
     elif diff == "hard":
         word = pick(HARDWORDS)
+    elif diff == "quit":
+        print("Goodbye.")
+        exit()
     else:
         print("Something wrong has occured!")
 
@@ -50,10 +55,10 @@ def hangman():
         if guess not in letters:
             os.system('clear')
             if guess in wrongs:
-              wrong += 0
+                wrong += 0
             elif guess not in wrongs:
-              wrong +=1
-              wrongs.append(str(guess))
+                wrong += 1
+                wrongs.append(str(guess))
             if wrong == 1:
                 print("You now have", wrong, "wrong guess.")
             elif wrong == 6:
@@ -109,13 +114,13 @@ def hangman():
             elif guess in state:
                 os.system('clear')
                 if guess in wrongs:
-                 wrong += 0
+                    wrong += 0
                 elif guess not in wrongs:
-                 wrong +=1
-                 wrongs.append(str(guess))
+                    wrong += 1
+                    wrongs.append(str(guess))
                 print("You have already guessed this letter!")
                 if wrong == 0:
-                  print("You have", wrong, "wrong guesses.")
+                    print("You have", wrong, "wrong guesses.")
                 if wrong == 1:
                     print("you now have", wrong, "wrong guess.")
                 elif wrong == 6:
