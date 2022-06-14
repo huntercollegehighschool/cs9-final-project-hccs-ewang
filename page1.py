@@ -1,5 +1,32 @@
 #Use of this page is optional. If you use code here, make sure either import page1 or from page1 import * appear on your main.py page.
 
-easywords =  ['live', 'neutral', 'ground', 'current','ohm', 'resistance', 'volt', 'amp', 'hot' ]
-mediumwords = ['resistor', 'voltage', 'circuit', 'capacitor','voltage','ampere', 'diode']
-hardwords = ['direct current', 'power factor correction', 'buck converter', 'stepdown converter', 'alternating current']
+EASYWORDS = [
+    'live',
+    'neutral',
+    'ground',
+    'current',
+    'ohm',
+    'diode',
+    'energy',
+    'fuse',
+    'grid',
+    'jacket',
+    'watt',
+    'load',
+    'motor',
+    'power',
+    'surge',
+    'switch',
+]
+MEDIUMWORDS = [
+    'resistor', 'voltage', 'circuit', 'capacitor', 'voltage', 'ampere',
+    'electricity', 'electron', 'insulator', 'conductor', 'watthour',
+    'kilowatt', 'transformer', 'inverter', 'short', 'resistance', 'capacitance'
+]
+HARDWORDS = [
+    'direct current', 'power factor correction', 'buck converter',
+    'stepdown converter', 'alternating current', 'short to ground',
+    'distribution lines', 'certification', 'volt ampere', 'milliamp hour',
+    'over current protection', 'over temperature protection',
+    'over voltage protection', 'ampere hour'
+]
