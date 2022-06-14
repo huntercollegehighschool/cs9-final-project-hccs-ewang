@@ -1,11 +1,19 @@
 """
-Name(s):
-Name of Project:
+Name(s): Eugene Wang
+Name of Project: Electrical Hangman
 """
 
 #Write the main part of your program here. Use of the other pages is optional.
+import os
+from page2 import (hangman, pick)
 
-#import page1  # uncomment if you're using page1
-#import page2  # uncomment if you're using page2
-#import page3  # uncomment if you're using page3
-#import page4  # uncomment if you're using page4
+game = input("Would you like to start a game of Hangman? Y or N: ").lower()
+while game not in ["y", "n"]:
+    os.system('clear')
+    game = input("Would you like to start a game of Hangman? Y or N: ").lower()
+
+if game == "y":
+    hangman()
+elif game == "n":
+    print("Goodbye.")
+    exit()
