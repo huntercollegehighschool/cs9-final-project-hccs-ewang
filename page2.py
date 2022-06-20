@@ -36,7 +36,6 @@ def hangman():
         print("Something wrong has occured!")
 
     letters = list(word)
-    print(letters)
     state = list(letters)
     for i in range(0, len(letters)):
         if letters[i] == " ":
@@ -113,7 +112,7 @@ def hangman():
                 guess = input("Please guess a letter: ").lower()
             elif guess in state:
                 os.system('clear')
-                if guess in wrongs:
+                if guess in wrongs or state:
                     wrong += 0
                 elif guess not in wrongs:
                     wrong += 1
